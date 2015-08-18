@@ -48,7 +48,7 @@ return [
 
 		'sqlite' => [
 			'driver'   => 'sqlite',
-			'database' => storage_path().'db/team1.sqlite3',
+			'database' => storage_path().'/DB/team1.sqlite3',
 			'prefix'   => '',
 		],
 
