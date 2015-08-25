@@ -4,6 +4,7 @@
     
     <!--external css-->
     <link href="{{asset('AdminBox/FlatAdmin/assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
+    @yield('custom_css')
 
     <!--right slidebar-->
     <link href="{{asset('AdminBox/FlatAdmin/css/slidebars.css')}}" rel="stylesheet">

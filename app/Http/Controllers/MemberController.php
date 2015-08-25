@@ -28,7 +28,7 @@ class MemberController extends Controller {
 	 */
 	public function index()
 	{
-		//
+            
 	}
 
 	/**
