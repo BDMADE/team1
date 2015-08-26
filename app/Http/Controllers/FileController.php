@@ -133,11 +133,20 @@ class FileController extends Controller {
      * @return Response
      */
     public function test() {
+       //$files=File::find(4);
+       //
        $files=File::all();
        foreach($files as $file){
-           
-           echo $file->members->name;
-           
+       //echo $files->file_name;          
+                  
+       foreach ($file->members as $value) {
+           echo $value->name;
+       }
+       
+       foreach ($file->extensions as $value) {
+           echo $value->id;
+       }
+      
        }
     }
 

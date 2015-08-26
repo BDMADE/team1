@@ -49,12 +49,20 @@
     <tr>
         
         <td class="col-md-3">{{$file->file_name}}</td>
-        <td class="col-md-2">{{$file->extenstions}}</td>
-        <td class="col-md-2">{{$file->members}}</td>
+        <td class="col-md-2">
+            @foreach($file->extensions as $extension)
+            {{$extension->file_extension}}
+            @endforeach
+        </td>
+        <td class="col-md-2">
+            @foreach($file->members as $member)
+            {{$member->name}}
+            @endforeach
+        </td>
         <td class="col-md-2">{{$file->created_at}}</td>
         <td class="col-md-2">
             
-            <a href="#" class="btn btn-block btn-round btn-success"  target="_blank"><i class="fa fa-download fa-2x"></i></a>
+            <a href="<?php echo url();?>/{{$file->file_path}}/{{$file->file_name}}" class="btn btn-block btn-round btn-success"  target="_blank"><i class="fa fa-download fa-2x"></i></a>
             
         </td>
         
