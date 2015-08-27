@@ -7,7 +7,10 @@
  */
 class HelperController extends Controller{
     
-    
+    /*
+     * explode the date ;e.g: 14-08-2015 will be converted to 14082015 
+     *      
+     */
     public static function explodeDate($date){
         
         $explode_date=  explode('-', $date);
@@ -15,7 +18,22 @@ class HelperController extends Controller{
         
         return $explode_date;
     }
+   /*
+    * explode the file name and file's extension and retrieve only file name ;
+    * 
+    * e.g: filename.txt will show only filename after using this function
+    *
+    */
     
+    public static function explodefile($data){
+        
+        $explode_file=  explode('.', $data);
+        //$explode_data=$explode_file[0];
+        
+        return $explode_file[0];
+    }
+    
+    //it will convert current date(22-09-2015) to like as 22092015
      public static function convertCurrentTime(){
         
         $date=date('d-m-y');

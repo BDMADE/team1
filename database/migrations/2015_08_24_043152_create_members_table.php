@@ -15,8 +15,10 @@ class CreateMembersTable extends Migration {
 		Schema::create('members', function(Blueprint $table)
 		{
 			$table->integer('id')->primary();
-			$table->string('name');
+			$table->string('first_name');
+                        $table->string('last_name');
                         $table->boolean('active')->default(0);
+                        $table->boolean('admin')->default(0);
 			$table->timestamps();
 		});
 	}

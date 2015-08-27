@@ -56,10 +56,10 @@
         </td>
         <td class="col-md-2">
             @foreach($file->members as $member)
-            {{$member->name}}
+            {{$member->first_name}}{{'&nbsp;'}}{{$member->last_name}}
             @endforeach
         </td>
-        <td class="col-md-2">{{$file->created_at}}</td>
+        <td class="col-md-2"><?php $date=$file->created_at;echo date_format($date,'d M Y');?></td>
         <td class="col-md-2">
             
             <a href="<?php echo url();?>/{{$file->file_path}}/{{$file->file_name}}" class="btn btn-block btn-round btn-success"  target="_blank"><i class="fa fa-download fa-2x"></i></a>

@@ -6,15 +6,23 @@
             <name>team1</name>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>Azizul</word>
             <word>breadcumb</word>
             <word>breadcumbs</word>
             <word>extenstion</word>
             <word>extenstions</word>
             <word>fileManager</word>
             <word>flatAdmin</word>
+            <word>Haque</word>
             <word>Hasan</word>
+            <word>Inbox</word>
+            <word>jQuery</word>
+            <word>pm</word>
+            <word>Shafiul</word>
+            <word>sideNav</word>
             <word>Tanbir</word>
             <word>ui</word>
+            <word>Ziaul</word>
         </spellchecker-wordlist>
     </configuration>
 </project>

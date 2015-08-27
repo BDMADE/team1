@@ -35,12 +35,17 @@
 			.quote {
 				font-size: 24px;
 			}
+                        
+                        a{color: #B0BEC5;font-family: 'Lato'; text-decoration: none;}
+                        a:hover{text-decoration: none; }
+                        
+                        
 		</style>
 	</head>
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Laravel 5</div>
+                            <div class="title"><a href="#">Team 1</a></div>
 				<div class="quote">{{ Inspiring::quote() }}</div>
 			</div>
 		</div>

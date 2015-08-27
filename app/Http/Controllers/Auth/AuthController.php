@@ -67,7 +67,8 @@ class AuthController extends Controller {
 		$this->auth->login($this->registrar->create($request->all()));
                 
                 $member=new Member;
-                $member->name=$request->name;
+                $member->first_name=$request->first_name;
+                $member->last_name=$request->last_name;
                 $member->save();
                 
                 $mail=new Mail;

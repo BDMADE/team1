@@ -27,9 +27,11 @@ Route::get('file/delete', 'FileController@delete');
 Route::post('file/delete', 'FileController@handleDelete');
 
 Route::get('file', 'FileController@index');
-
+Route::get('message', 'MailController@index');
 
 Route::get('test', 'FileController@test');
+
+Route::post('message', 'MailController@compose');
 
 
 

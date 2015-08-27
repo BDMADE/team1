@@ -59,18 +59,19 @@ class FileController extends Controller {
     public function handleCreate() {
         $user_id = Auth::id();
         $user = User::find($user_id);
-        $user_name = $user->name;
+        $user_name = $user->first_name;
         $date = HelperController::convertCurrentTime();
 
 
         $file = Input::file('file');
         $extension = $file->getClientOriginalExtension(); // getting file extension
         $fileName = $file->getClientOriginalName();
+        //$fileName=  HelperController::explodefile($fileName);//explode the file name and file's extension and retrieve only file name   
         $path = '/files/' . $user_name . '/' . $date . '/' . $extension;
 
         $destinationPath = public_path().$path; // upload path
 
-
+        
 
         $upload_success = $file->move($destinationPath, $fileName); // uploading file to given path
 
@@ -133,11 +134,10 @@ class FileController extends Controller {
      * @return Response
      */
     public function test() {
-       //$files=File::find(4);
-       //
-       $files=File::all();
+       
+       /*$files=File::all();
        foreach($files as $file){
-       //echo $files->file_name;          
+               
                   
        foreach ($file->members as $value) {
            echo $value->name;
@@ -147,7 +147,18 @@ class FileController extends Controller {
            echo $value->id;
        }
       
-       }
+       }*/
+        
+       // echo HelperController::convertCurrentTime();
+        
+       // $date=File::find(1)->created_at;
+        
+        //echo HelperController::explodeDate($date);
+        //echo date_format($date,'d M Y');
+          $data='tanbir.txt';
+          //echo HelperController::explodefile($data);
+        
+        
     }
 
     /**

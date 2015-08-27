@@ -38,11 +38,39 @@ class CreateJoinTables extends Migration {
                         
 		});
                 
-                
+             Schema::create('member_message', function(Blueprint $table)
+		{	
+                        $table->integer('member_id');
+                        $table->foreign('member_id')->references('id')->on('members');
+		
+                        $table->integer('message_id');                        
+                        $table->foreign('message_id')->references('id')->on('messages');
+                        });   
            
                 
-                
-	}
+                Schema::create('inbox_message', function(Blueprint $table)
+		{	
+                        $table->integer('inbox_id');
+                        $table->foreign('inbox_id')->references('id')->on('inboxes');
+		
+                        $table->integer('message_id');                        
+                        $table->foreign('message_id')->references('id')->on('messages');
+                        });
+                        
+                Schema::create('author_message', function(Blueprint $table)
+		{	
+                        $table->integer('author_id');
+                        $table->foreign('author_id')->references('id')->on('authors');
+		
+                        $table->integer('message_id');                        
+                        $table->foreign('message_id')->references('id')->on('messages');
+                        });
+                        
+           
+             
+	
+                        
+                }
 
 	/**
 	 * Reverse the migrations.
@@ -54,6 +82,9 @@ class CreateJoinTables extends Migration {
 		Schema::drop('mail_member');
                 Schema::drop('file_member');
                 Schema::drop('extension_file');
+                Schema::drop('member_message');
+                Schema::drop('inbox_message');
+                Schema::drop('author_message');
 	}
 
 }

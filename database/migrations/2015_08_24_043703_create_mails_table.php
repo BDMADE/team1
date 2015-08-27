@@ -20,6 +20,13 @@ class CreateMailsTable extends Migration {
 			$table->boolean('varification')->default(0);
 			$table->timestamps();
 		});
+                
+                
+               
+                
+                
+                
+                
 	}
 
 	/**
@@ -30,6 +37,7 @@ class CreateMailsTable extends Migration {
 	public function down()
 	{
 		Schema::drop('mails');
+                
 	}
 
 }
