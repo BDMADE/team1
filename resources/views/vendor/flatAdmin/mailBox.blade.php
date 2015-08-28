@@ -25,8 +25,8 @@
                 <img src="{{asset('AdminBox/flatAdmin/img/mail-avatar.jpg')}}" alt="">
             </a>
             <div class="user-name">
-                <h5><a href="#">Jonathan Smith</a></h5>
-                <span><a href="#">tanbir2025@gmail.com</a></span>
+                <h5><a href="#">{{$author->first_name}}{{'&nbsp;'}}{{$author->last_name}}</a></h5>
+                <span><a href="#">{{$author->email}}</a></span>
             </div>
 
         </div>

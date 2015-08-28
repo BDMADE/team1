@@ -12,9 +12,9 @@ class Message extends Model {
         return $this->belongsToMany('App\Member');
     }
     
-    //this function will be used for who send message;
-    public function mailer(){
-        return $this->belongsToMany('App\Member');
+    public function author(){
+        return $this->belongsToMany('App\Author');
     }
-
+    
+    
 }

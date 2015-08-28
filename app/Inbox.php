@@ -4,8 +4,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inbox extends Model {
 
-    public function messages(){
-        return $this->belongsToMany('App\Message');
+    public function message(){
+        return $this->belongsTo('App\Message');
     }
 
 }

@@ -76,7 +76,7 @@ class AuthController extends Controller {
                 $mail->code=rand(1000000,9999999);
                 $mail->save();
                 
-                $member->mails()->attach($mail);//make mail_member join table
+                
                 
                 
                 

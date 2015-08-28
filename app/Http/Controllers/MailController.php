@@ -2,6 +2,8 @@
  use App\Message;
  use App\Member;
  use App\Inbox;
+ use App\Author;
+ use App\User;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -30,10 +32,12 @@ class MailController extends Controller {
 	public function index()
 	{
             $members= Member::all();//all data of member collection
+            //
             //user id
             $id=Auth::id();
+            $author=User::find($id);
 		//mailbox view
-            return view('vendor/flatAdmin/mailBox',  compact(array('members','id')));
+            return view('vendor/flatAdmin/mailBox',  compact(array('members','author','id')));
 	}
 
 	/**
@@ -55,21 +59,37 @@ class MailController extends Controller {
 	{
 		//it will compose and save message in message collection.
            $message=new Message;
-           $to=$request->messageTo;
+           $toMany=$request->messageTo;
            $message->subject=$request->subject;
            $message->message=$request->message;
            $message->save();
-           //create inbox
+           //create inbox for each receiver of message
+           foreach ($toMany as $to) {
+            
            $inbox=new Inbox;
-           $inbox->save();
+           $inbox->member_id=$to;
+           $inbox->message()->associate($message);           
+           $inbox->save();   
+               
+               
+           }
+           
+           
+           //create new author
+           
+           $author=new Author;
+           $author_id=Auth::id();
+           $author->mail_author=$author_id;
+           $author->save();
            
            //attach message with receiver
-           $message->member()->attach($to);
+           //$message->member()->attach($to);
            //attach message with inbox
-           $message->inbox()->attach($message);
+           //$message->inbox()->attach($message);
            
            //attach message with  mail sender
-           $message->mailer()->attach($message);
+           $message->author()->attach($author_id);
+                   
            
            
             
