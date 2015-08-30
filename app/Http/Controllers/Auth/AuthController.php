@@ -74,16 +74,7 @@ class AuthController extends Controller {
                 $mail=new Mail;
                 $mail->mail=$request->email;
                 $mail->code=rand(1000000,9999999);
-                $mail->save();
-                
-                
-                
-                
-                
-                
-                
-                
-                
+                $mail->save();                
                 
 
 		return redirect($this->redirectPath());
@@ -159,7 +150,7 @@ class AuthController extends Controller {
 			return $this->redirectPath;
 		}
 
-		return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+		return property_exists($this, 'redirectTo') ? $this->redirectTo : '/file';
 	}
 
 	/**

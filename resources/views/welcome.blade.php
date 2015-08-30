@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Laravel</title>
+		<title>Team1-We journey with Rails</title>
 		
 		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
@@ -45,9 +45,10 @@
 	<body>
 		<div class="container">
 			<div class="content">
-                            <div class="title"><a href="#">Team 1</a></div>
+                            <div class="title"><a href="{{url('auth/login')}}">Team 1</a></div>
 				<div class="quote">{{ Inspiring::quote() }}</div>
 			</div>
+                    
 		</div>
 	</body>
 </html>

@@ -6,7 +6,12 @@ class Author extends Model {
 
 	//
         public function message(){
-        return $this->belongsToMany('App\Message');
+        return $this->belongsTo('App\Message');
     }
+    
+    public function member(){
+        return $this->belongsToMany('App\Member');
+    }
+    
 
 }

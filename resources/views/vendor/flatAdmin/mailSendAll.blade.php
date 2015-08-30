@@ -97,15 +97,16 @@ use App\Member;
             </div><!-- /.modal -->
         </div>
         <ul class="inbox-nav inbox-divider">
-            <li class="active">
+            <li>
                 <a href="{{action('MailController@index')}}"><i class="fa fa-inbox"></i> Inbox <span class="label label-danger pull-right">{{$unread}}</span></a>
 
             </li>
-            <li>
+            <li class="active">
                 <a href="{{action('MailController@mailSendAll')}}"><i class="fa fa-envelope-o"></i> Sent Mail</a>
             </li>
            
             
+
         </ul>
 
     </aside>
@@ -118,9 +119,8 @@ use App\Member;
                 <thead>
                     <tr>
 
-                        <th class="col-md-3"  data-filterable="true">From</th>
-                        <th class="col-md-5"  data-filterable="true">Subject</th>
-                        <th class="col-md-3"  data-filterable="true">Date</th>
+                        <th class="col-md-7"  data-filterable="true">Subject</th>
+                        <th class="col-md-4"  data-filterable="true">Date</th>
                         <th class="col-md-1"  data-filterable="false">Action</th>
 
 
@@ -129,33 +129,15 @@ use App\Member;
                 </thead>
 
                 <tbody>
-                    @foreach($inboxes as $inbox)
+                    
 
-                    @if($inbox->mail_read)
-                    <tr>
-                    @else
-                    <tr class="unread">
+                    @foreach($sends as $send)
+                    <tr class="success">
 
-                        @endif
-                        <td class="inbox-small-cells"><a href="#">
-                                
-                                
-                                <i class="fa fa-star inbox-started"></i>
-                            
-                            
-                            </a>
-                            
-                            
-                            
-                            &nbsp;&nbsp;&nbsp;
-                        <?php $message_id=$inbox->message_id;$sender=Author::find($message_id)->mail_author;$fname=Member::find($sender)->first_name;$lname=Member::find($sender)->last_name;?>
-                        {{$fname}}
-                        
-                        </td>
-                        <td class="view-message  dont-show">{{$inbox->message->subject}}</td>
-                        <td class="view-message ">{{HelperController::convertTimeWithAMPM($inbox->created_at)}}</td>
+                        <td class="view-message  dont-show">{{$send->message->subject}}</td>
+                        <td class="view-message ">{{HelperController::convertTimeWithAMPM($send->created_at)}}</td>
                         <td class="view-message  text-right">
-                            <a data-toggle="modal" href="{{action('MailController@read',$inbox->message->id)}}" class="btn btn-sm btn-send">Read</a>   
+                            <a data-toggle="modal" href="{{action('MailController@sendRead',$send->message->id)}}" class="btn btn-sm btn-send">Read</a>   
                         </td>
                     </tr>
                     

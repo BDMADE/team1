@@ -86,7 +86,7 @@ use App\Member;
                                     <div class="col-lg-offset-2 col-lg-10">
 
                                         <input type="submit" class="btn btn-send" value="Send"/>
-                                        
+                                        <a class="btn btn-info" href="#">Draft</a>
 
                                     </div>
                                 </div>
@@ -97,15 +97,15 @@ use App\Member;
             </div><!-- /.modal -->
         </div>
         <ul class="inbox-nav inbox-divider">
-            <li class="active">
-                <a href="{{action('MailController@index')}}"><i class="fa fa-inbox"></i> Inbox <span class="label label-danger pull-right">{{$unread}}</span></a>
+            <li>
+                <a href="#"><i class="fa fa-inbox"></i> Inbox <span class="label label-danger pull-right">{{$unread}}</span></a>
 
             </li>
             <li>
-                <a href="{{action('MailController@mailSendAll')}}"><i class="fa fa-envelope-o"></i> Sent Mail</a>
+                <a href="#"><i class="fa fa-envelope-o"></i> Sent Mail</a>
             </li>
            
-            
+
         </ul>
 
     </aside>
@@ -114,61 +114,27 @@ use App\Member;
             <h3>Message Box</h3>
         </div>
         <div class="inbox-body">
-            <table class="table table-inbox table-hover" data-provide="datatable"  data-info="true" data-display-rows="5" data-paginate="true">
-                <thead>
-                    <tr>
+           <div class="heading-inbox row">
+               <div class="col-md-8">
+                                      <div class="compose-btn">
+                                          <a class="btn btn-sm btn-primary" href="{{action('MailController@index')}}"><i class="fa fa-reply"></i>&nbsp;Back to Inbox</a>
+                                           </div>
 
-                        <th class="col-md-3"  data-filterable="true">From</th>
-                        <th class="col-md-5"  data-filterable="true">Subject</th>
-                        <th class="col-md-3"  data-filterable="true">Date</th>
-                        <th class="col-md-1"  data-filterable="false">Action</th>
-
-
-
-                    </tr>
-                </thead>
-
-                <tbody>
-                    @foreach($inboxes as $inbox)
-
-                    @if($inbox->mail_read)
-                    <tr>
-                    @else
-                    <tr class="unread">
-
-                        @endif
-                        <td class="inbox-small-cells"><a href="#">
-                                
-                                
-                                <i class="fa fa-star inbox-started"></i>
-                            
-                            
-                            </a>
-                            
-                            
-                            
-                            &nbsp;&nbsp;&nbsp;
-                        <?php $message_id=$inbox->message_id;$sender=Author::find($message_id)->mail_author;$fname=Member::find($sender)->first_name;$lname=Member::find($sender)->last_name;?>
-                        {{$fname}}
-                        
-                        </td>
-                        <td class="view-message  dont-show">{{$inbox->message->subject}}</td>
-                        <td class="view-message ">{{HelperController::convertTimeWithAMPM($inbox->created_at)}}</td>
-                        <td class="view-message  text-right">
-                            <a data-toggle="modal" href="{{action('MailController@read',$inbox->message->id)}}" class="btn btn-sm btn-send">Read</a>   
-                        </td>
-                    </tr>
-                    
-                   
-                    
-                    
-
-                    @endforeach
-
-
-
-                </tbody>
-            </table>
+                                  </div>
+                                  <div class="col-md-4 text-right">
+                                      <p class="date">{{HelperController::convertTimeWithAMPM($inbox->created_at)}}</p>
+                                  </div>
+                                  <div class="col-md-12">
+                                      <h4>{{$inbox->message->subject}}</h4>
+                                  </div>
+                              </div>
+                              
+                              <div class="view-mail">
+                                  <p>{{$inbox->message->message}}</p>
+                                  </div>
+                              
+                             
+                          </div> 
         </div>
     </aside>
 </div>

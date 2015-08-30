@@ -16,6 +16,8 @@ class CreateAuthorsTable extends Migration {
 		{
 			$table->integer('id')->primary();
                         $table->boolean('mail_author');
+                        $table->integer('message_id');                        
+                        $table->foreign('message_id')->references('id')->on('messages');
                         $table->boolean('mail_send')->default(1);
                         $table->boolean('mail_draft')->default(0);
 			$table->timestamps();

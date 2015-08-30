@@ -13,7 +13,7 @@ class Message extends Model {
     }
     
     public function author(){
-        return $this->belongsToMany('App\Author');
+        return $this->belongsTo('App\Author');
     }
     
     

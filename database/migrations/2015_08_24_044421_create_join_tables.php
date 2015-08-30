@@ -38,15 +38,7 @@ class CreateJoinTables extends Migration {
                         
                     
                         
-                Schema::create('author_message', function(Blueprint $table)
-		{	
-                        $table->integer('author_id');
-                        $table->foreign('author_id')->references('id')->on('authors');		
-                        $table->integer('message_id');                        
-                        $table->foreign('message_id')->references('id')->on('messages');
-                        });
-                        
-           
+                
              
 	
                         
@@ -61,7 +53,7 @@ class CreateJoinTables extends Migration {
 	{
 		Schema::drop('file_member');
                 Schema::drop('extension_file');
-                Schema::drop('author_message');
+                
 	}
 
 }

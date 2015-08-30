@@ -23,15 +23,28 @@ Route::controllers([
 Route::get('file/add', 'FileController@create');
 Route::post('file/add', 'FileController@handleCreate');
 
-Route::get('file/delete', 'FileController@delete');
-Route::post('file/delete', 'FileController@handleDelete');
+//Route::get('file/delete', 'FileController@delete');
+//Route::post('file/delete', 'FileController@handleDelete');
 
 Route::get('file', 'FileController@index');
+
 Route::get('message', 'MailController@index');
 
-Route::get('test', 'FileController@test');
-
 Route::post('message', 'MailController@compose');
+
+Route::get('message/send', 'MailController@mailSendAll');
+
+Route::get('message/{id}', 'MailController@read');//read data from message  inbox
+Route::get('message/send/{id}', 'MailController@sendRead');//read data from message send box
+
+//future used route
+//Route::get('message/important', 'MailController@importantAll');//read data from message send box
+//Route::get('message/important/{id}', 'MailController@starMail');//read data from message send box
+
+
+Route::get('test', 'TestController@index');
+
+
 
 
 
