@@ -1,6 +1,9 @@
 ## Team 1
 
 This web application is made for who loves to communicate privately.It is a private mail or message system.
+This application is made through laravel 4.2 framework,twitter-bootstrap framework.
+## Requirements
+PHP 5.4,Composer
 
 ## DEMO
 
