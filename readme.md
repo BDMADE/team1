@@ -8,8 +8,8 @@ http://team1.cf/
 
 ## How to Install
 
-Step 1: Download/ clone the repository.
-Step 2: $ cd team1
-Step 3: $ composer install
-Step 4: $ php artisan serve
+Step 1: Download/ clone the repository.<br/>
+Step 2: <code>$ cd team1</code><br/>
+Step 3: <code>$ composer install</code><br/>
+Step 4: <code>$ php artisan serve</code>
 
