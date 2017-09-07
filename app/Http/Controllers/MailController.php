@@ -11,6 +11,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 
 class MailController extends Controller {
 
@@ -62,7 +63,7 @@ class MailController extends Controller {
             $inbox = new Inbox;
             $inbox->member_id = $to;
             $inbox->message()->associate($message);
-            $inbox->save();
+            $inbox->save();         
         }
 
 
@@ -73,6 +74,9 @@ class MailController extends Controller {
         $author->mail_author = $author_id;      
         $author->message()->associate($message);        
         $author->save();
+
+        // re direct home page
+         return redirect('file');
     }
 
     /**
