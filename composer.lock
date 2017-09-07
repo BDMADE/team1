@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "52b12c25b35694a7a691269de1263945",
-    "content-hash": "dbe50aac7b6e46185ae65f085903832c",
+    "hash": "414956d05ebf154bde286ad7df542f10",
+    "content-hash": "fe81da34663edb69fc137d7964f599d1",
     "packages": [
         {
             "name": "bestmomo/filemanager",
@@ -3206,6 +3206,10 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "7.0.*",
+        "ext-mcrypt": "*",
+        "ext-pdo_sqlite": "*"
+    },
     "platform-dev": []
 }
